@@ -1,0 +1,33 @@
+Q1 - Find Median
+Soln. Find Total no of nodes. Put a for loop for median.
+
+Q2 - Merge Sorted ll
+Soln. Recursive Solution
+	Base Case - if a is NULL, return b, if b is null, return a
+	General Case - Make a merged ll, which is a/b, and merged->next = recursion
+	Also has traversal soln.
+	
+Q3 - Sort ll
+Soln. Merge Sort
+	Divide lls, sort sub lls, merge sorted
+	Divide - take n/2, make pointer for both
+
+Q4 - Reverse ll
+Soln. Take 3 pointers prev, curr, next
+	Keep swapping prev and curr and traverse
+	Also has recursive soln.
+
+Q5 - Palindrome
+Soln. Just traverse the ll for each value and check
+	Or reverse the second half of the ll and check.
+	
+Q8 - Delete no
+	Just traverse upto it and skip it.
+	
+Q9 - Make struct, divide id and do by hand
+
+
+## Notes
+* fgets() ends at newline and includes a '\n' for newline 
+* strlen() does not count '\0'
+* Make char array once and use pointers later.
