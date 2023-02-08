@@ -54,7 +54,7 @@ int isGreater(Country *c1, Country *c2){
 void sort(Country **countries, int n){
 	for(int i = 0; i < n-1; i++){
 		for(int j = 0; j < n-i-1; j++){
-			if(isGreater(!(countries[j],countries[j+1]))){
+			if(!isGreater(countries[j],countries[j+1])){
 				Country *temp = countries[j+1]; 
 				countries[j+1] = countries[j];
 				countries[j] = temp; 
