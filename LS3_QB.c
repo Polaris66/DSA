@@ -2,137 +2,128 @@
 #include <stdlib.h>
 #include <assert.h>
 
-typedef struct Node {
+typedef struct Node_t{
 	int data;
-	struct Node *next;
-	struct Node *prev;
+	struct Node_t *prev;
+	struct Node_t *next;
 } Node;
-
-
-void printList(Node *cur){
-	Node *temp = cur;
-	while(cur!=NULL){
-		printf("%d ",cur->data);
-		cur = cur->next;
-	}
-	printf("\n");
-}
 
 Node *createNode(int val){
 	Node *newNode = (Node *) malloc(sizeof(Node));
 	assert(newNode!=NULL);
 	newNode->data = val;
-	newNode->next = NULL;
 	newNode->prev = NULL;
-	return newNode;
+	newNode->next = NULL;
 }
 
-Node *addToList(Node *cur, int val){
-	Node *newNode = createNode(val);
-	if(cur==NULL){
-		return newNode;
-	}
+void addToList(Node *cur, int val){
 	Node *temp = cur;
-	while((temp->next) != NULL){
+	Node *newNode = createNode(val);
+	while((temp->next)!=NULL){
 		temp = temp->next;
 	}
+	newNode->prev = temp;
 	temp->next = newNode;
-	return newNode;
+}
+
+Node *findHead(Node *cur){
+	Node *head = cur;
+	while((head->prev)!=NULL){
+		head = head->prev;
+	}
+	return head;
 }
 
 Node *readList(){
 	int n;
 	scanf("%d",&n);
+	
 	Node *cur = NULL;
-	for(int i = 0; i < n; i++){
+	while(n--){
 		int val;
 		scanf("%d",&val);
 		if(cur==NULL){
-			cur = addToList(cur,val);
+			cur = createNode(val);
 		}
 		else{
 			addToList(cur,val);
 		}
 	}
+	
 	return cur;
 }
 
+void printList(Node *cur){
+	Node *temp = findHead(cur);
+	while(temp!=NULL){
+		printf("%d ",temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
+}
+
 void printCurrent(Node *cur){
-	printf("%d\n",cur->data);
+	printf("\n%d",cur->data);
 }
 
 void playNext(Node **cur){
-	if((*cur)->next==NULL){
-		return;
+	if((*cur)->next!=NULL){
+		*cur = (*cur)->next;
 	}
-	*cur = (*cur)->next;
 }
-
 void playPrev(Node **cur){
-	if((*cur)->prev==NULL){
-		return;
+	if((*cur)->prev!=NULL){
+		*cur = (*cur)->prev;
 	}
-	*cur = (*cur)->prev;
-}
-
-Node *findHead(Node *cur){
-	Node *temp = cur;
-	while((temp->prev)!=NULL){
-		temp = temp->prev;
-	}
-	return temp;
 }
 
 Node *findNode(Node *cur, int val){
-	Node *head = findHead(cur);
-	Node *temp = head;
+	Node *temp = findHead(cur);
 	while(temp!=NULL){
-		if((temp)->data == val){
+		if((temp->data) == val){
 			return temp;
-		} 
+		}
 		temp = temp->next;
 	}
 	return NULL;
 }
-Node *addToQueue(Node *cur, int val){
-	Node *temp = findNode(cur,val);
-	if(temp==NULL){
-		temp = createNode(val);
-		temp->next = cur->next;
-		temp->prev = cur;
-		(cur->next)->prev = temp;
-		cur->next = temp;
+
+void putNext(Node *cur, int val){
+	Node *target = findNode(cur,val);
+	if(target==NULL){
+		target = createNode(val);
 	}
-	else{	
-		if((temp->prev)!=NULL)
-		{
-			(temp->prev)->next = temp->next;
-			printf("HI");
+	else{
+		Node *pre = target->prev;
+		Node *nxt = target->next;
+		if(pre!=NULL){
+			pre->next = nxt;
 		}
-		if((temp->next)!=NULL){
-		(temp->next)->prev = temp->prev;}
-		temp->prev = cur;
-		temp->next = cur->next;
-		if((cur->next)!=NULL)
-		{(cur->next)->prev = temp;}
-		cur->next = temp;	
+		if(nxt!=NULL){
+			nxt->prev = pre;
+		}
 	}
-	return cur;
+	Node *curNext = cur->next;
+	target->prev = cur;
+	target->next = curNext;
+	cur->next = target;
+	if(curNext!=NULL){
+		curNext->prev = target;
+	}	
 }
 
 int main(){
 	Node *cur = readList();
-	int operation;
 	int done = 0;
-
 	while(!done){
-		scanf("%d",&operation);
-		switch(operation){
+		int x;
+		scanf("%d",&x);
+		int val;
+		switch(x){
 			case(1):
-				int val;
 				scanf("%d",&val);
 				addToList(cur,val);
-				break;			
+				break;
 			case(2):
 				printCurrent(cur);
 				break;
@@ -144,12 +135,11 @@ int main(){
 				break;
 			case(5):
 				done = 1;
-				break;
+				break;	
 			case(6):
-				val;
 				scanf("%d",&val);
-				cur = addToQueue(cur,val);	
-				break;
-		}	
-	}			
+				putNext(cur,val);
+				break;	
+		}
+	}
 }

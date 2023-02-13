@@ -4,42 +4,45 @@
 
 typedef struct Node{
 	int data;
-	struct Node *next;
 	struct Node *prev;
+	struct Node *next;
 } Node;
 
 Node *createNode(int val){
 	Node *newNode = (Node *) malloc(sizeof(Node));
-	assert(newNode!=NULL);
 	newNode->data = val;
-	newNode->next = NULL;
 	newNode->prev = NULL;
-	return newNode;
+	newNode->next = NULL;
 }
 
-Node *addToList(Node *cur, int val){
+void addToList(Node *cur, int val){
 	Node *newNode = createNode(val);
-	if(cur==NULL){
-		return newNode;
-	}
-	Node *temp = cur;	
+	Node *temp = cur;
 	while((temp->next)!=NULL){
 		temp = temp->next;
 	}
+	newNode->prev = temp;
 	temp->next = newNode;
-	return newNode;
+}
+
+void printList(Node *cur){
+	Node *temp = cur;
+	while(temp!=NULL){
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
 }
 
 Node *readList(){
 	int n;
 	scanf("%d",&n);
-	
 	Node *cur = NULL;
 	for(int i = 0; i < n; i++){
 		int val;
-		scanf("%d",&val);
+		scanf("%d", &val);
 		if(cur==NULL){
-			cur = addToList(cur,val);
+			cur = createNode(val);
 		}
 		else{
 			addToList(cur,val);
@@ -49,30 +52,30 @@ Node *readList(){
 }
 
 void printCurrent(Node *cur){
-	printf("%d\n",cur->data);
+	if(cur!=NULL){
+		printf("\n%d",cur->data);
+	}
 }
 
-void nextSong(Node **cur){	
-	if((*cur)->next==NULL){
-		return;
+void playNext(Node **cur){
+	if((*cur)!=NULL && ((*cur)->next)!=NULL){
+		*cur = ((*cur)->next);
 	}
-	*cur = (*cur)->next;
 }
 
-void prevSong(Node **cur){
-	if((*cur)->prev==NULL){
-		return;
+void playPrev(Node **cur){
+	if((*cur)!=NULL && ((*cur)->prev)!=NULL){
+		*cur = ((*cur)->prev);
 	}
-	*cur = (*cur)->prev;
 }
 
 int main(){
 	Node *cur = readList();
-	int operation;
-	int done = 0;	
+	int done = 0;
 	while(!done){
-		scanf("%d",&operation);
-		switch(operation){
+		int x;
+		scanf("%d",&x);
+		switch(x){
 			case(1):
 				int val;
 				scanf("%d",&val);
@@ -82,14 +85,14 @@ int main(){
 				printCurrent(cur);
 				break;
 			case(3):
-				nextSong(&cur);
+				playNext(&cur);
 				break;
 			case(4):
-				prevSong(&cur);
+				playPrev(&cur);
 				break;
 			case(5):
 				done = 1;
 				break;
 		}
-	}			
+	}
 }
