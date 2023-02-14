@@ -9,24 +9,19 @@ void printArray(int *arr, int n){
 	printf("\n");
 }
 
-int findLastIndex(int *arr, int n, int l, int target){
-	int result = -1;
-	int r = n - 1;
+int findIndex(int *arr, int n, int i, int value){
+	int l = i;
+	int r = n-1;
 	while(l<=r){
-		int mid = l + (r-l)/2;
-		printf("%d %d\n",mid,target);
-		if(arr[mid]==target){
-			result = mid;
-			l = mid + 1;
-		}
-		else if (arr[mid]<target){
-			l = mid+1;		
+		int mid = (l+r)/2;
+		if(arr[mid]<=value){
+			l = mid+1;
 		}
 		else{
-			r = mid;
+			r = mid-1;
+			}
 		}
-	}	
-	return result+1;
+	return r;
 }
 
 int main(){
@@ -39,7 +34,8 @@ int main(){
 	}
 	int count = 0;
 	for(int i = 0; i < n; i++){
-		i = findLastIndex(arr,n,i,arr[i]);
+		int value = arr[i];
+		i = findIndex(arr,n,i,value);
 		count++;
 	}
 	printf("%d\n",count);
