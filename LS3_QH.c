@@ -5,18 +5,19 @@
 void findSqrt(long int n){
 	long int l = 0;
 	long int r = n;
-	int count = 0;
-	while(l!=r){
-		long mid = (l+r)/2;
+	while(l<=r){
+		long int mid = (l+r)/2;
 		if((mid*mid) < n){
 			l = mid + 1;
 		}
 		else if((mid*mid) > n){
 			r = mid - 1;
 		}
-		count++;
+		else{
+			l = mid + 1;
+		}
 	}
-	printf("%ld\n",l);
+	printf("%ld\n",(l+r)/2);
 }
 
 int main(){

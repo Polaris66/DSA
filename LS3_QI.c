@@ -5,7 +5,7 @@
 void findSteps(long int n, long int target){
 	long int l = 1;
 	long int r = n-1;
-	while(l!=r){
+	while(l<r){
 		long int mid = (l+r)/2;
 		long int sum = mid*(mid+1)/2;
 		if(sum<target){
@@ -18,7 +18,7 @@ void findSteps(long int n, long int target){
 			break;
 		}
 	}	
-	printf("%ld\n",n-1-r);
+	printf("%ld\n",n-1-((l+r)/2));
 }
 
 int main(){
