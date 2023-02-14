@@ -12,7 +12,7 @@ void printArray(int *arr, int n){
 void findDeduction(int *arr, int n, int target){
 	int l = 0;
 	int r = n-1;
-	while(l!=r){
+	while(l<r){
 		int mid = (l+r)/2;
 		int val = arr[mid];
 		if(val == target){
@@ -26,7 +26,7 @@ void findDeduction(int *arr, int n, int target){
 			r = mid-1;
 		}
 	}
-	printf("%d\n",arr[l]);
+	printf("%d\n",arr[(l+r)/2]);
 }
 
 int main(){
