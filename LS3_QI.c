@@ -28,3 +28,4 @@ int main(){
 	target = target - (target/2);
 	findSteps(n,target);
 }
+
