@@ -17,6 +17,7 @@ int main(){
 	scanf("%d",&k);
 	
 	int ft[n];
+	
 	for(int i = 0; i < n; i++){
 		ft[i] = 0;
 	}
@@ -24,21 +25,26 @@ int main(){
 	for(int i = 0; i < n; i++){
 		int val;
 		scanf("%d",&val);
+		
 		ft[val-1]++;
 	}
 	
-	int ans[k];
-	for(int i = 0; i < k; i++){
-		ans[i] = 0;
-	}
+	int max[k];
 	
-	for(int i = 0; i < n; i++){
-		if(ft[i]>ans[0]){
-			for(int j = k-1; j > 0; j++){
-				ans[j] = ans[j-1];
-			} 
-			ans[0] = i+1;
-		}	
+	for(int i = 0; i < k; i++){
+		int maximum = -1;
+		for(int j = 0; j < n; j++){
+			if(ft[j]>=maximum){
+				maximum = ft[j];
+			}
+		}
+		for(int j = 0; j < n; j++){
+			if(ft[j] == maximum){
+				max[i] = j+1;
+				ft[j] = -1;
+				break;
+			}
+		}
 	}
-	printArray(ans,k);
+	printArray(max,k);
 }
