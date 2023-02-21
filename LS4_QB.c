@@ -32,6 +32,13 @@ int main(){
 	for(int i = 0; i < n; i++){
 		scanf("%d",&arr[i]);
 	}
+	
+	int max = -1;
+	for(int i = 0; i <= n; i++){
+				
+	}
 	//printArray(arr,n);
 	
 }
+//sort
+//binary search for all values if its equal to value diff condition else diff condition
