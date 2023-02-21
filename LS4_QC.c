@@ -23,12 +23,30 @@ int main(){
 	for(int i = 0; i < n; i++){
 		scanf("%d",&arr[i]);
 	}
-	
+	int max = 0;
+	for(int i = 0; i < n; i++){
+		if(arr[i]>max){
+			max = arr[i];
+		}
+	}
+	max/=5;
 	int newArray[n];
 	for(int i = 0; i < n; i++){
 		newArray[i] = arr[i] / 5;
 	}
-	printArray(arr,n);
+	int ft[max+1];
+	for(int i = 0; i < max+1; i++){
+		ft[i] = 0;
+	}
+	for(int i = 0; i < n; i++){
+		ft[newArray[i]]+=1;
+	}
+	
+	int ans = 0;
+	for(int i = 0; i < max+1; i++){
+		ans+=(ft[i]*(ft[i]-1)/2);
+	}
+	printf("%d\n",ans);
 }
 
 /// No of zeros in trailing is min no of 5 powers, 
