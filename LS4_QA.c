@@ -8,6 +8,14 @@ void printArray(int arr[], int n){
 }
 
 int main(){
+	int n;
+	scanf("%d",&n);
 	
+	int first[n];
+	int second[n];
+	for(int i = 0; i < n; i++){
+		scanf("%d",&first[i]);
+		scanf("%d",&second[i]);
+	}	
 }
 
