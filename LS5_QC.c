@@ -1,48 +1,47 @@
 #include <stdio.h>
 
-int checkFrequencyTable(int *ft, int k){
-	int atLeastOne = 1;
-	for(int i = 0; i < k; i++){
-		if(ft[i]<1){
-			atLeastOne = 0;
-		}
-	}
-	return atLeastOne;
-}
-
-void printArray(int *arr, int n){
-	for(int i = 0; i < n; i++){
-		printf("%d ",arr[i]);
-	}
-	printf("\n");
-}
-
 int main(){
 	int n, k;
 	scanf("%d",&n);
 	scanf("%d",&k);
-	
-	char s[n];
-	scanf("%s",s);
-	
+	char arr[n];
+	for(int i = 0; i < n; i++){
+		scanf("%c",&arr[i]);
+	}
 	int ft[k];
+	int distinct = 0;
 	for(int i = 0; i < k; i++){
 		ft[i] = 0;
 	}
-	int l = 0;
-	int r = 0;
-	ft[s[0]-97]+=1;
-	int count = 0;
-	while(){
-		if(!checkFrequencyTable(ft,k)){
-			
+	int ans = 0;
+	int i = 0;
+	int j = 0;
+	while(j<n){
+		if(!ft[arr[j]-97]){
+			ft[arr[j]-97]+=1;
+			distinct+=1;
 		}
 		else{
-		
+			ft[arr[j]-97]+=1;
+		}
+		if(distinct==k){
+			while(distinct==k){
+				ans+=(n-j);
+				if(ft[arr[i]-97])
+				ft[arr[i]-97]-=1;
+				if(ft[arr[i]-97]==0){
+					distinct-=1;
+				}
+				
+				i++;
+			}
+			j++;
+		}
+		else{
+			j++;
 		}
 	}
-	printArray(ft,k);
-	printf("%d\n",count);
+	printf("%d\n",ans);
 }
 
 // 'a' = 97
