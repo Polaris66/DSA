@@ -29,8 +29,8 @@ int main(){
 	}	
 	
 	int ft[k];
-	
-	for(int i = 0; i < k; i++){
+	ft[0] = 1;
+	for(int i = 1; i < k; i++){
 		ft[k] = 0;
 	}
 	for(int i = 0; i < n; i++){
@@ -42,6 +42,5 @@ int main(){
 			ans+=(ft[i])*(ft[i]-1)/2;
 		}
 	}
-	ans+=ft[0];
 	printf("%d\n",ans);
 }
