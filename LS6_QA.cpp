@@ -7,9 +7,9 @@ class MinStack{
 	int *minArr;
 	int minIndex;
 	public:MinStack(){
-		this->arr = new int[10000000];
+		this->arr = new int[1000];
 		this->topIndex = -1;
-		this->minArr = new int[10000000];
+		this->minArr = new int[1000];
 		this->minIndex = -1;
 	}
 	public:void push(int val){
