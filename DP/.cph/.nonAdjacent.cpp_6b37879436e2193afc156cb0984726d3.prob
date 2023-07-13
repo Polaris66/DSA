@@ -1,0 +1,1 @@
+{"name":"Local: nonAdjacent","url":"/home/polaris/DSA/DP/nonAdjacent.cpp","tests":[{"id":1689181878878,"input":"3\n1 2 4","output":"5"},{"id":1689181906548,"input":"4\n2 1 4 9","output":"11"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/DP/nonAdjacent.cpp","group":"local","local":true}
