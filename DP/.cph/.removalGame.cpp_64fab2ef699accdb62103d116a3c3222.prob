@@ -1,0 +1,1 @@
+{"name":"Local: removalGame","url":"/home/polaris/DSA/DP/removalGame.cpp","tests":[{"id":1689330809406,"input":"4\n4 5 1 3","output":"8"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/DP/removalGame.cpp","group":"local","local":true}
