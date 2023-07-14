@@ -1,51 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define ll long long
 #define mod 1000000007
 
-int recursion(vector<int> a, int m, int i, int n){
-    if(i==n){
-        return 1;
-    }
-    int ans = 0;
-    if(a[i]!=0){
-        if (i == 0)
-        {
-            ans += recursion(a,m,i+1,n) % mod;
-        }
-        else if (abs(a[i - 1] - a[i]) <= 1)
-        {
-            ans += recursion(a, m, i + 1,n) % mod;
-        }
-    }
-    else{
-        for(int j = 1; j <= m; j++){
-            // Check If Possible
-        if(i==0){
-            a[i] = j; 
-            ans += recursion(a,m,i+1,n) % mod;
-        }
-        else if ((abs(a[i - 1] - j) <= 1)){
-            a[i] = j;
-            ans += recursion(a, m, i + 1, n) % mod;
-        }
-        }
-    }
-    return ans%mod;
-}
+// Arrays that can be made with putting x at i
+ll recursion(vector<int> a, int m, int i, int x, int n){
+    
+    if(i < 0) return 0;
+    if(x > m) return 0;
+    if(x < 1) return 0;
 
-int tabulation(){
-    return 1;
+    if(a[i]!=0 && a[i]!=x){
+        return 0;
+    }
+
+    ll ways = 0;
+    ways += recursion(a, m, i - 1, x + 1, n) % mod;
+    ways += recursion(a, m, i - 1, x - 1, n) % mod;
+    ways += recursion(a, m, i - 1, x, n) % mod;
+    return ways%mod;    
 }
 
 int main(){
     int n, m;
     cin>>n>>m;
 
-    vector<int> a(n);
-    for(auto &x: a){
+    vector<int> nums(n);
+    for(auto &x: nums){
         cin>>x;
     }
 
-    cout<<recursion(a,m,0,n)<<endl;
+    cout<<recursion(nums,m,n-1,m,n)<<endl;
 }
