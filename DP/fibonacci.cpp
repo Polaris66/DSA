@@ -50,8 +50,8 @@ int main(){
     vector<int> dp(n + 1, -1);
     cout << memoization(n, dp) << endl;
     }
-    if(t==3)
-    cout<<tabulation(n)<<endl;
-    if(t==4)
-    cout<<optimized(n)<<endl;
+    // if(t==3)
+    // cout<<tabulation(n)<<endl;
+    // if(t==4)
+    // cout<<optimized(n)<<endl;
 }
