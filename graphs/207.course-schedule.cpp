@@ -24,10 +24,7 @@ public:
         pathVisited[vertex] = true;
         for(int neighbor: Adj[vertex]){
             if(!Visited[neighbor]){
-                if(noCycle(neighbor, Adj, Visited, pathVisited)){
-                    pathVisited[neighbor] = false;
-                }
-                else{
+                if(!noCycle(neighbor, Adj, Visited, pathVisited)){
                     return false;
                 }
             }
