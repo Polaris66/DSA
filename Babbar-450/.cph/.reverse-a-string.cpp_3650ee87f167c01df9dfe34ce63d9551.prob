@@ -1,0 +1,1 @@
+{"name":"Local: reverse-a-string","url":"/home/polaris/DSA/Babbar-450/reverse-a-string.cpp","tests":[{"id":1690040330229,"input":"Geeks","output":"skeeG"},{"id":1690040348843,"input":"for","output":"rof"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/Babbar-450/reverse-a-string.cpp","group":"local","local":true}

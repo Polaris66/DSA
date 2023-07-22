@@ -1,0 +1,1 @@
+{"name":"Local: find-min-max","url":"/home/polaris/DSA/Babbar-450/find-min-max.cpp","tests":[{"id":1690041489940,"input":"5\n-2 1 -4 5 3","output":"1"},{"id":1690041505274,"input":"4\n1 3 4 1","output":"5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/Babbar-450/find-min-max.cpp","group":"local","local":true}
