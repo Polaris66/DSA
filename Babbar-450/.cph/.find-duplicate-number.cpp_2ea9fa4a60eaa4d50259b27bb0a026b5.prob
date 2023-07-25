@@ -1,0 +1,1 @@
+{"name":"Local: find-duplicate-number","url":"/home/polaris/DSA/Babbar-450/find-duplicate-number.cpp","tests":[{"id":1690241384436,"input":"5\n1 3 4 2 2","output":"2"},{"id":1690241391933,"input":"5\n3 1 3 4 2","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/Babbar-450/find-duplicate-number.cpp","group":"local","local":true}
