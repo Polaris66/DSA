@@ -1,0 +1,1 @@
+{"name":"Local: count-set-bits","url":"/home/polaris/DSA/Babbar-450/count-set-bits.cpp","tests":[{"id":1690523800482,"input":"6","output":"2"},{"id":1690523808012,"input":"8","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/Babbar-450/count-set-bits.cpp","group":"local","local":true}
