@@ -1,0 +1,1 @@
+{"name":"Local: is-power-of-two","url":"/home/polaris/DSA/Babbar-450/is-power-of-two.cpp","tests":[{"id":1690609566246,"input":"1","output":"1"},{"id":1690609574886,"input":"98","output":"0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/Babbar-450/is-power-of-two.cpp","group":"local","local":true}
