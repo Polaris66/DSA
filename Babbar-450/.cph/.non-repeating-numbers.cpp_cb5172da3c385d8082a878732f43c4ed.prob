@@ -1,0 +1,1 @@
+{"name":"Local: non-repeating-numbers","url":"/home/polaris/DSA/Babbar-450/non-repeating-numbers.cpp","tests":[{"id":1690560919019,"input":"2\n1 2 3 2 1 4","output":"3 4"},{"id":1690560937928,"input":"1\n2 1 3 2","output":"1 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/Babbar-450/non-repeating-numbers.cpp","group":"local","local":true}

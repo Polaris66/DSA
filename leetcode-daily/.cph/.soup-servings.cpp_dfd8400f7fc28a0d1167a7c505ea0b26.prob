@@ -1,0 +1,1 @@
+{"name":"Local: soup-servings","url":"/home/polaris/DSA/leetcode-daily/soup-servings.cpp","tests":[{"id":1690606358557,"input":"50","output":"0.625"},{"id":1690606368145,"input":"100","output":"0.71875"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/leetcode-daily/soup-servings.cpp","group":"local","local":true}
