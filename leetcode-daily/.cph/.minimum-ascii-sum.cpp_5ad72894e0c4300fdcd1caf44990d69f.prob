@@ -1,0 +1,1 @@
+{"name":"Local: minimum-ascii-sum","url":"/home/polaris/DSA/leetcode-daily/minimum-ascii-sum.cpp","tests":[{"id":1690782159770,"input":"sea\neat","output":"231"},{"id":1690782170567,"input":"delete\nleet","output":"403"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/leetcode-daily/minimum-ascii-sum.cpp","group":"local","local":true}
