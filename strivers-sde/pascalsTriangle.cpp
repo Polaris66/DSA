@@ -24,11 +24,35 @@ vector<vector<int>> recursion(vector<vector<int>> res, vector<int> prevRow, int 
     res.push_back(current);
     return recursion(res, current, n + 1, maxN);
 }
-vector<vector<int>> generate(int numRows)
+vector<vector<int>> recursive(int numRows)
 {
     if (numRows == 1)
     {
         return {{1}};
     }
     return recursion({{1}}, {1}, 2, numRows + 1);
+}
+
+vector<int> generateRow(int row)
+{
+    vector<int> Row;
+    Row.push_back(1);
+    int curr = 1;
+    for (int col = 1; col < row; col++)
+    {
+        curr *= (row - col);
+        curr /= col;
+        Row.push_back(curr);
+    }
+    return Row;
+}
+
+vector<vector<int>> generate(int n)
+{
+    vector<vector<int>> res;
+    for (int i = 1; i <= n; i++)
+    {
+        res.push_back(generateRow(i));
+    }
+    return res;
 }
