@@ -1,0 +1,1 @@
+{"name":"Local: square","url":"/home/polaris/DSA/Babbar-450/square.cpp","tests":[{"id":1690812598738,"input":"3","output":"9"},{"id":1690812603225,"input":"25","output":"625"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/Babbar-450/square.cpp","group":"local","local":true}
