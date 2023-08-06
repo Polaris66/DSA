@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std
+    Node *graph[101];
+bool generated[101];
+void dfs(Node *node)
+{
+    // Make Node
+    Node *copy = new Node(node->val);
+    graph[node->val] = copy;
+    generated[node->val] = true;
+
+    // For neighbors, check if generated add, else generate
+    vector<Node *> copyNeighbors;
+    for (Node *neighbor : node->neighbors)
+    {
+        if (!generated[neighbor->val])
+        {
+            dfs(neighbor);
+        }
+        copyNeighbors.push_back(graph[neighbor->val]);
+    }
+
+    copy->neighbors = copyNeighbors;
+}
+Node *cloneGraph(Node *node)
+{
+    if (node == nullptr)
+    {
+        return nullptr;
+    }
+    memset(generated, false, sizeof(generated));
+    dfs(node);
+    return graph[node->val];
+}
