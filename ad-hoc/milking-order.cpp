@@ -3,56 +3,83 @@ using namespace std;
 
 int main()
 {
+    freopen("milkorder.in", "r", stdin);
+    freopen("milkorder.out", "w", stdout);
+
     int n, m, k;
     cin >> n >> m >> k;
 
-    vector<int> order(m);
-    for (auto &x : order)
+    vector<int> hei(m);
+    for (auto &x : hei)
     {
         cin >> x;
     }
 
-    vector<int> next(n + 1, 0);
-    for (int i = m - 1; i > 0; i--)
+    vector<int> fixed(n + 1, 0);
+    vector<int> arr(n + 1, 0);
+
+    for (int i = 0; i < k; i++)
     {
-        next[order[i]] = order[i + 1];
+        int c, p;
+        cin >> c >> p;
+        fixed[c] = p;
+        arr[p] = c;
     }
 
-    vector<int> pos(n + 1, 0);
-
-    while (k--)
+    if (fixed[1])
     {
-        int x, y;
-        cin >> x >> y;
-        pos[y] = x;
+        cout << fixed[1] << '\n';
+        return 0;
     }
 
-    int carried = 0;
-    for (int i = n; i > 0; i--)
+    int ptr = n;
+    for (int i = m - 1; i >= 0; i--)
     {
-        if (pos[i] != 0)
+        int cur = hei[i];
+        if (cur == 1)
         {
-            if (next[pos[i]] != 0)
+            ptr = 1;
+            for (int j = 0; j <= i; j++)
             {
-                carried = next[pos[i]];
+                cur = hei[j];
+                if (fixed[cur])
+                {
+                    ptr = fixed[cur] + 1;
+                    continue;
+                }
+
+                while (arr[ptr])
+                {
+                    ptr++;
+                }
+                arr[ptr] = cur;
+                ptr++;
             }
+
+            cout << ptr - 1 << '\n';
+            return 0;
         }
-        else
+
+        if (fixed[cur])
         {
-            if (carried)
-            {
-                pos[i] = carried;
-                carried = 0;
-            }
+            ptr = fixed[cur] - 1;
+            continue;
         }
+
+        while (arr[ptr])
+        {
+            ptr--;
+        }
+        arr[ptr] = cur;
+        ptr--;
     }
 
-    for (int i = 1; i < n + 1; i++)
+    for (int i = 1; i <= n; i++)
     {
-        if (pos[i] == 0)
+        if (arr[i] == 0)
         {
-            cout << i << endl;
-            break;
+            cout << i << '\n';
+            return 0;
         }
     }
 }

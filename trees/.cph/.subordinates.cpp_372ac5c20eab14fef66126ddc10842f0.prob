@@ -1,0 +1,1 @@
+{"name":"Local: subordinates","url":"/home/polaris/DSA/trees/subordinates.cpp","tests":[{"id":1692460335183,"input":"5\n1 1 2 3\n","output":"4 1 1 0 0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/trees/subordinates.cpp","group":"local","local":true}
