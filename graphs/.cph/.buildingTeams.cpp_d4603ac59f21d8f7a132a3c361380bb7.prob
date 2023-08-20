@@ -1,0 +1,1 @@
+{"name":"Local: buildingTeams","url":"/home/polaris/DSA/graphs/buildingTeams.cpp","tests":[{"id":1692539721014,"input":"5 3\n1 2\n1 3\n4 5","output":"1 2 2 1 2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/graphs/buildingTeams.cpp","group":"local","local":true}
