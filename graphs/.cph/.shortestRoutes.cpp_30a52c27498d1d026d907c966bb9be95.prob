@@ -1,0 +1,1 @@
+{"name":"Local: shortestRoutes","url":"/home/polaris/DSA/graphs/shortestRoutes.cpp","tests":[{"id":1692550737484,"input":"3 4\n1 2 6\n1 3 2\n3 2 3\n1 3 4","output":"0 5 2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/graphs/shortestRoutes.cpp","group":"local","local":true}
