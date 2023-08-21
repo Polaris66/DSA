@@ -1,0 +1,1 @@
+{"name":"Local: anagramPairs","url":"/home/polaris/DSA/maps/anagramPairs.cpp","tests":[{"id":1692628668020,"input":"6\neat tea tan ate nat bat","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/polaris/DSA/maps/anagramPairs.cpp","group":"local","local":true}
